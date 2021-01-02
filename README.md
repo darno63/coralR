@@ -7,7 +7,17 @@ modeled after [Real Python Tutorial 1,](https://realpython.com/flask-connexion-r
 [ 4](https://realpython.com/flask-connexion-rest-api-part-4/)  
 
 ## How to run locally
-I still have my postgresql db running locally, so you must create your own using the files in the `db_create` folder. The .sql file should create a new db, create two new tables, and populate the vessels table. The .py file should populate the orders table with 100 randomized orders.
+
+download the required libraries with 
+
+```(venv) $ pip install -r requirements.txt```
+
+
+I still have my postgresql db running locally, so you must create your own using the files in the `db_create` folder. The .sql file should create a new db, create two new tables, and populate the vessels table. The .py file should populate the orders table with 100 randomized orders. You will also have to change the connection in `models.py` to your local db.
+
+when you have the database connected run the server.
+
+```(venv) $ python server.py```
 
 # Backend
 
