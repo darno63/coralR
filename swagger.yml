@@ -1,5 +1,3 @@
-# https://realpython.com/flask-connexion-rest-api/#the-swagger-configuration-file
-
 swagger: "2.0"
 info:
   description: This is the swagger file that goes with our server code
@@ -14,61 +12,61 @@ basePath: /api
 
 # Paths supported by the server application
 paths:
-  /people:
+  /vessels:
     get:
-      operationId: people.read_all
+      operationId: vessels.read_all
       tags:
-        - People
-      summary: Read the entire set of people, sorted by last name
-      description: Read the entire set of people, sorted by last name
+        - Vessels
+      summary: Read the entire set of vessels, sorted by id
+      description: Read the entire set of vessels, sorted by id
       responses:
         200:
-          description: Successfully read people set operation
+          description: Successfully read vessels set operation
           schema:
             type: array
             items:
               properties:
-                person_id:
+                vessel_id:
                   type: string
-                  description: Id of the person
-                fname:
+                  description: Id of the vessel
+                vessel_name:
                   type: string
-                  description: First name of the person
-                lname:
+                  description: Name of the vessel
+                region:
                   type: string
-                  description: Last name of the person
-                timestamp:
+                  description: Region of the vessel
+                preptime:
                   type: string
-                  description: Creation/Update timestamp of the person
+                  description: Preptime of the vessel
 
-  /people/{person_id}:
+  /vessels/{vessel_id}:
     get:
-      operationId: people.read_one
+      operationId: vessels.read_one
       tags:
-        - People
-      summary: Read one person
-      description: Read one person
+        - Vessels
+      summary: Read one vessel
+      description: Read one vessel
       parameters:
-        - name: person_id
+        - name: vessel_id
           in: path
-          description: Id of the person to get
+          description: Id of the vessel to get
           type: integer
           required: True
       responses:
         200:
-          description: Successfully read person from people data operation
+          description: Successfully read vessel from vessels data operation
           schema:
             type: object
             properties:
-              person_id:
+              vessel_id:
                 type: string
-                description: Id of the person
-              fname:
+                description: Id of the vessel
+              vessel_name:
                 type: string
-                description: First name of the person
-              lname:
+                description: Name of the vessel
+              region:
                 type: string
-                description: Last name of the person
-              timestamp:
+                description: Region of the vessel
+              preptime:
                 type: string
-                description: Creation/Update timestamp of the person record
+                description: Preptime of the vessel

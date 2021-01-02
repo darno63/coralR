@@ -3,12 +3,12 @@ from config import db, ma
 
 db.Model.metadata.reflect(db.engine)
 
-class Person(db.Model):
-    __table__ = db.Model.metadata.tables['person']
+class Vessel(db.Model):
+    __table__ = db.Model.metadata.tables['vessels']
 
-class PersonSchema(ma.SQLAlchemyAutoSchema):
+class VesselSchema(ma.SQLAlchemyAutoSchema):
     class Meta:
-        model = Person
+        model = Vessel
         sqla_session = db.session
         load_instance = True
         

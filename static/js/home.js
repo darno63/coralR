@@ -1,9 +1,3 @@
-/*
- * https://realpython.com/flask-connexion-rest-api/#javascript-file
- * JavaScript file for the application to demonstrate
- * using the API
- */
-
 // Create the namespace instance
 let ns = {};
 
@@ -18,7 +12,7 @@ ns.model = (function() {
         'read': function() {
             let ajax_options = {
                 type: 'GET',
-                url: 'api/people',
+                url: 'api/vessels',
                 accepts: 'application/json',
                 dataType: 'json'
             };
@@ -31,10 +25,10 @@ ns.model = (function() {
             })
         },
 
-        'search': function(person_id) {
+        'search': function(vessel_id) {
             let ajax_options = {
                 type: 'GET',
-                url: `api/people/${person_id}`,
+                url: `api/vessels/${vessel_id}`,
                 accepts: 'application/json',
                 dataType: 'json'
             };
@@ -53,32 +47,30 @@ ns.model = (function() {
 ns.view = (function() {
     'use strict';
 
-    let $person_id = $('#person_id'),
-        $fname = $('#fname'),
-        $lname = $('#lname');
+    let $vessel_id = $('#vessel_id');
+        //$fname = $('#fname');
 
     // return the API
     return {
 
         // clears editor boxes
         reset: function() {
-            $person_id.val('').focus();
-            $lname.val('');
+            $vessel_id.val('').focus();
             $fname.val('');
         },
 
         // returns person to table
-        build_table: function(person) {
+        build_table: function(vessel) {
             
             // clear the table 
-            $('.people table > tbody').empty();
+            $('.vessels table > tbody').empty();
 
             // did we get a people array?
-            if (person) {
-                let row = `<tr data-person-id="${person.person_id}">
-                        <td class="fname">${person.fname}</td>
-                        <td class="lname">${person.lname}</td>
-                        <td>${person.timestamp}</td>
+            if (vessel) {
+                let row = `<tr data-vessel-id="${vessel.vessel_id}">
+                        <td class="vessel_name">${vessel.vessel_name}</td>
+                        <td class="region">${vessel.region}</td>
+                        <td>${vessel.preptime}</td>
                        </tr>`;
                 $('table > tbody').append(row);
             }
@@ -103,9 +95,7 @@ ns.controller = (function(m, v) {
     let model = m,
         view = v,
         $event_pump = $('body'),
-        $person_id = $('#person_id'),
-        $fname = $('#fname'),
-        $lname = $('#lname');
+        $vessel_id = $('#vessel_id');
 
     // Get the data from the model after the controller is done initializing
     setTimeout(function() {
@@ -113,18 +103,18 @@ ns.controller = (function(m, v) {
     }, 100)
 
     // Validate input
-    function validate(person_id) {
-        return person_id !== "";
+    function validate(vessel_id) {
+        return vessel_id !== "";
     }
 
     // Create our event handlers
     $('#search').click(function(e) {
-        let person_id = $person_id.val();
+        let vessel_id = $vessel_id.val();
 
         e.preventDefault();
 
-        if (validate(person_id)) {
-            model.search(person_id)
+        if (validate(vessel_id)) {
+            model.search(vessel_id)
         } else {
             alert('Problem with ID input');
         }
@@ -133,33 +123,6 @@ ns.controller = (function(m, v) {
     $('#reset').click(function() {
         view.reset();
     })
-
-    $('table > tbody').on('dblclick', 'tr', function(e) {
-        let $target = $(e.target),
-            person_id,
-            fname,
-            lname;
-
-        person_id = $target
-            .parent()
-            .attr('data-person-id');
-
-        fname = $target
-            .parent()
-            .find('td.fname')
-            .text();
-
-        lname = $target
-            .parent()
-            .find('td.lname')
-            .text();
-
-        view.update_editor({
-            person_id: person_id,
-            fname: fname,
-            lname: lname,
-        });
-    });
 
     // Handle the model events
     $event_pump.on('model_read_success', function(e, data) {

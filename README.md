@@ -1,10 +1,50 @@
-# REST API
-from [Real Python Tutorial 1,](https://realpython.com/flask-connexion-rest-api/)
+# Labor Hours API
+
+Final purpose will be to grab orders from a database and calculate the required labor hours based off the forecasted sales input by the user.  
+modeled after [Real Python Tutorial 1,](https://realpython.com/flask-connexion-rest-api/)
 [ 2,](https://realpython.com/flask-connexion-rest-api-part-2/)
 [ 3,](https://realpython.com/flask-connexion-rest-api-part-3/)
 [ 4](https://realpython.com/flask-connexion-rest-api-part-4/)  
 
-# jQuery
+## How to run locally
+I still have my postgresql db running locally, so you must create your own using the files in the `db_create` folder. The .sql file should create a new db, create two new tables, and populate the vessels table. The .py file should populate the orders table with 100 randomized orders.
 
+# Backend
+
+Build using:  
+Flask to build the server  
+Connexion to handle HTTP requests  
+SQLAlchemy to interface with the database  
+Marshmallow to transform database objects into JSON 
+
+## Database
+**TODO**: Integrate orders table and create SQLalchemy objects containing the required information to calculate labor hours
+
+## API Interaction
+Using Connexion which is built on Swagger to handle http requests. tbh I don't know how it works, I followed the instructions.
+
+# Frontend
+Using a combination of HTML, CSS, and JS to create a single page application capable of getting information from the databases.
+
+## JavaScript
+**TODO:** Improve method of returning results instead of using the table. Add some logic behind the GMV input.
+
+Uses JQuery to build an AJAX model withint a Model-View-Controller pattern. 
+
+Model:  
+Stores functions that interact with the server and receives JSON data  
+
+View:  
+Stores functions that interact with the webpage
+
+Controller:  
+Handles events that trigger view and model functions
+
+JS resources:  
 [jQuery Selectors](https://www.tutorialspoint.com/jquery/jquery-selectors.htm)
 
+## HTML
+**TODO**: Make a dropdown menu for Vessel name which will be autopopulated by avaible vessel data from database.
+
+## CSS
+**TODO:** Needs to be badly updated.
