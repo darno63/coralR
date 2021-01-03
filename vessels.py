@@ -13,19 +13,19 @@ def read_all():
     with the complete lists of vessels
     """
     # Create the list of vessels from our data
-    vessels = Vessel.query.order_by(Vessel.vessel_id).all()
+    vessels = Vessel.query.order_by(Vessel.vessel_name).all()
 
     # Serialize the data for the response
     vessel_schema = VesselSchema(many=True)
     return vessel_schema.dump(vessels)
 
-def read_one(vessel_id):
+def read_one(vessel_name):
     """
-    This function responds to a request for /api/vessels/{vessel_id}
+    This function responds to a request for /api/vessels/{vessel_name}
     with one matching vessel from vessels
     """
     # Get the vessel requested
-    vessel = Vessel.query.filter(Vessel.vessel_id == vessel_id).one_or_none()
+    vessel = Vessel.query.filter(Vessel.vessel_name == vessel_name).one_or_none()
 
     # Did we find a vessel?
     if vessel is not None:
@@ -36,4 +36,4 @@ def read_one(vessel_id):
 
     # Otherwise, nope, didn't find that vessel
     else:
-        abort(404, 'Vessel not found for Id: {vessel_id}'.format(vessel_id=vessel_id))
+        abort(404, 'Vessel not found for Name: {vessel_name}'.format(vessel_name=vessel_name))

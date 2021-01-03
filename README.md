@@ -30,6 +30,15 @@ Marshmallow to transform database objects into JSON
 ## Database
 **TODO**: Integrate orders table and create SQLalchemy objects containing the required information to calculate labor hours
 
+                    Table "public.vessels"             Table "public.orders"
+                |   Column    |   Type       |       |   Column    |  Type   |                  
+                +-------------+--------------+       +-------------+---------+
+                | vessel_id   | integer  -pk |       | order_id    | int -pk |                        
+                | vessel_name | character 10 |       | vessel_id   | int     |                        
+                | region      | character 20 |       | amount      | money   |                          
+                | preptime    | integer      |       | order_date  | date    |                    
+                
+
 ## API Interaction
 Using Connexion which is built on Swagger to handle http requests. tbh I don't know how it works, I followed the instructions.
 
@@ -37,9 +46,9 @@ Using Connexion which is built on Swagger to handle http requests. tbh I don't k
 Using a combination of HTML, CSS, and JS to create a single page application capable of getting information from the databases.
 
 ## JavaScript
-**TODO:** Improve method of returning results instead of using the table. Add some logic behind the GMV input.
+**TODO:** Improve method of returning results instead of using the table.
 
-Uses JQuery to build an AJAX model withint a Model-View-Controller pattern. 
+Uses JQuery to build an AJAX model within a Model-View-Controller pattern. 
 
 Model:  
 Stores functions that interact with the server and receives JSON data  
@@ -54,7 +63,6 @@ JS resources:
 [jQuery Selectors](https://www.tutorialspoint.com/jquery/jquery-selectors.htm)
 
 ## HTML
-**TODO**: Make a dropdown menu for Vessel name which will be autopopulated by avaible vessel data from database.
 
 ## CSS
 **TODO:** Needs to be badly updated.

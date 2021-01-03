@@ -39,7 +39,7 @@ paths:
                   type: string
                   description: Preptime of the vessel
 
-  /vessels/{vessel_id}:
+  /vessels/{vessel_name}:
     get:
       operationId: vessels.read_one
       tags:
@@ -47,10 +47,10 @@ paths:
       summary: Read one vessel
       description: Read one vessel
       parameters:
-        - name: vessel_id
+        - name: vessel_name
           in: path
-          description: Id of the vessel to get
-          type: integer
+          description: Name of the vessel to get
+          type: string
           required: True
       responses:
         200:
