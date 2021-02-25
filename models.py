@@ -1,6 +1,7 @@
 from datetime import datetime
 from config import db, ma
 
+# changing branch
 db.Model.metadata.reflect(db.engine)
 
 class Vessel(db.Model):
@@ -11,4 +12,4 @@ class VesselSchema(ma.SQLAlchemyAutoSchema):
         model = Vessel
         sqla_session = db.session
         load_instance = True
-        
+
