@@ -2,6 +2,7 @@ from datetime import datetime
 from config import db, ma
 
 # original main branch
+# another addition
 db.Model.metadata.reflect(db.engine)
 
 class Vessel(db.Model):
