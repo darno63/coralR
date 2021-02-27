@@ -1,9 +1,7 @@
 from datetime import datetime
 from config import db, ma
 
-# original main branch
-# another addition
-# changing branch
+# new branch, not the main branch
 
 db.Model.metadata.reflect(db.engine)
 
