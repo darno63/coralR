@@ -1,7 +1,7 @@
 from datetime import datetime
 from config import db, ma
 
-# new branch, not the main branch
+# This is change on the newbranch from local machine
 
 db.Model.metadata.reflect(db.engine)
 
