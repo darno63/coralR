@@ -1,7 +1,6 @@
 # Labor Hours API
 
-HERE ARE SOME CHANGES from the local machine
-
+HERE ARE SOME CHANGES from the local machine and from remote
 
 Final purpose will be to grab orders from a database and calculate the required labor hours based off the forecasted sales input by the user.  
 modeled after [Real Python Tutorial 1,](https://realpython.com/flask-connexion-rest-api/)
