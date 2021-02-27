@@ -1,6 +1,6 @@
 # Labor Hours API
 
-HERE ARE SOME CHANGES
+HERE ARE SOME CHANGES from the local machine
 
 
 Final purpose will be to grab orders from a database and calculate the required labor hours based off the forecasted sales input by the user.  
