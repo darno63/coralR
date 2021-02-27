@@ -1,8 +1,6 @@
 from datetime import datetime
 from config import db, ma
 
-# This is change on the newbranch from local machine
-
 db.Model.metadata.reflect(db.engine)
 
 class Vessel(db.Model):
